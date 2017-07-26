@@ -1,0 +1,10 @@
+{
+  "name": "evans",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jared Henderson <jared@netrivet.com>",
+  "license": "MIT",
+  "scripts": {
+    "serve": "php -S localhost:1111 -t public/"
+  }
+}

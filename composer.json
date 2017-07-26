@@ -1,0 +1,25 @@
+{
+    "name": "friends-library/evans",
+    "type": "project",
+    "require": {
+        "nikic/fast-route": "^1.2",
+        "illuminate/container": "^5.4",
+        "symfony/http-foundation": "^3.3",
+        "vlucas/phpdotenv": "^2.4",
+        "symfony/var-dumper": "^3.3"
+    },
+    "authors": [
+        {
+            "name": "Jared Henderson",
+            "email": "jared@netrivet.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "Evans\\": "src"
+      },
+      "files": [
+        "helpers.php"
+      ]
+    }
+}
