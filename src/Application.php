@@ -10,14 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use function FastRoute\{simpleDispatcher};
+use Evans\Infrastructure\Providers\ServiceProviderInterface;
 
 class Application extends Container
 {
-    /**
-     * @var string
-     */
-    protected $basePath;
-
     /**
      * @var array
      */
@@ -29,7 +25,18 @@ class Application extends Container
     public function __construct(string $basePath)
     {
         date_default_timezone_set('UTC');
-        $this->basePath = $basePath;
+        define('APP_DIR', $basePath);
+    }
+
+    /**
+     * Register a service provider
+     *
+     * @param ServiceProviderInterface $provider
+     * @return void
+     */
+    public function register(ServiceProviderInterface $provider): void
+    {
+        $provider->register($this);
     }
 
     /**
@@ -73,16 +80,21 @@ class Application extends Container
     {
         $dispatcher = $this->getDispatcher();
         $request = Request::createFromGlobals();
-        $routeInfo = $dispatcher->dispatch($request->getMethod(), $request->getPathInfo());
 
-        switch ($routeInfo[0]) {
-            case Dispatcher::NOT_FOUND:
-                throw new NotFoundHttpException;
-            case Dispatcher::METHOD_NOT_ALLOWED:
-                throw new MethodNotAllowedHttpException($routeInfo[1]);
-            case Dispatcher::FOUND:
-                list($code, $handler, $vars) = $routeInfo;
-                return $this->handleFoundRoute($handler, $vars);
+        try {
+            $routeInfo = $dispatcher->dispatch($request->getMethod(), $request->getPathInfo());
+            switch ($routeInfo[0]) {
+                case Dispatcher::NOT_FOUND:
+                    throw new NotFoundHttpException();
+                case Dispatcher::METHOD_NOT_ALLOWED:
+                    throw new MethodNotAllowedHttpException($routeInfo[1]);
+                case Dispatcher::FOUND:
+                    list($code, $handler, $vars) = $routeInfo;
+                    return $this->handleFoundRoute($handler, $vars);
+            }
+        } catch (NotFoundHttpException $e) {
+            header("Location: /not-found");
+            exit;
         }
     }
 

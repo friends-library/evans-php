@@ -1,6 +1,19 @@
 <?php
 
 /**
+ * Render a vew template
+ *
+ * @param string $template
+ * @param array $vars
+ * @return void
+ */
+function view(string $template, array $vars = []): void
+{
+    extract($vars);
+    include APP_DIR . "views/{$template}.php";
+}
+
+/**
  * Gets the value of an environment variable.
  *
  * @param string $key
