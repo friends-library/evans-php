@@ -10,7 +10,9 @@
     "sass": "node-sass-chokidar sass/ -o public/css/ --output-style compressed --include-path node_modules/bootstrap/scss",
     "watch:sass": "node-sass-chokidar sass/ -o public/css/ --output-style compressed --include-path node_modules/bootstrap/scss -w sass/* -r",
     "sync": "browser-sync start --port 5678 --ui-port 2345 --files 'public/css/app.css'",
-    "start": "yarn sass && yarn sync & yarn watch:sass"
+    "start": "yarn sass && yarn sync & yarn watch:sass",
+    "lint:php": "cd .lint && ../vendor/bin/phpcs",
+    "preflight": "yarn lint:php"
   },
   "devDependencies": {
     "bootstrap": "git+ssh://git@github.com/twbs/bootstrap.git#v4-dev",
