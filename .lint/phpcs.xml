@@ -1,0 +1,12 @@
+<ruleset name="Evans">
+    <description>Do not fall on your victuals like a brute beast.</description>
+
+    <file>../src</file>
+    <file>../bootstrap</file>
+    <file>../routes</file>
+    <file>../public/index.php</file>
+
+    <rule ref="PSR2">
+
+    </rule>
+</ruleset>

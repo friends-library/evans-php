@@ -9,7 +9,7 @@ use Illuminate\Container\Container;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
-use function FastRoute\{simpleDispatcher};
+use function FastRoute\simpleDispatcher;
 use Evans\Infrastructure\Providers\ServiceProviderInterface;
 
 class Application extends Container
