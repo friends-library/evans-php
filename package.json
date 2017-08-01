@@ -2,9 +2,20 @@
   "name": "evans",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": "https://github.com/jaredh159/evans",
   "author": "Jared Henderson <jared@netrivet.com>",
   "license": "MIT",
   "scripts": {
-    "serve": "php -S localhost:1111 -t public/"
+    "serve": "php -S localhost:1111 -t public/",
+    "sass": "node-sass-chokidar sass/ -o public/css/ --output-style compressed --include-path node_modules/bootstrap/scss",
+    "watch:sass": "node-sass-chokidar sass/ -o public/css/ --output-style compressed --include-path node_modules/bootstrap/scss -w sass/* -r",
+    "sync": "browser-sync start --port 5678 --ui-port 2345 --files 'public/css/app.css'",
+    "start": "yarn sass && yarn sync & yarn watch:sass"
+  },
+  "devDependencies": {
+    "bootstrap": "git+ssh://git@github.com/twbs/bootstrap.git#v4-dev",
+    "browser-sync": "^2.18.13",
+    "node-sass-chokidar": "^0.0.3",
+    "stylelint": "^8.0.0"
   }
 }
