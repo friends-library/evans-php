@@ -1,4 +1,6 @@
+.DS_Store
 .env
 /vendor/
 /node_modules/
 /public/css/*.css
+/public/js/*.js

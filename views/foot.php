@@ -1,7 +1,4 @@
-    <?php if (env('EVANS_ENV') === 'local') { ?>
-        <script id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:5678/browser-sync/browser-sync-client.js?v=2.18.13'><\/script>".replace("HOST", location.hostname));
-//]]></script>
-    <?php } ?>
+    </main>
+    <?php env('EVANS_ENV') === 'local' && view('dev/browsersync') ?>
     </body>
 </html>
