@@ -12,4 +12,12 @@
             </p>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <h2>Documents:</h2>
+            <?php foreach ($friend->getDocuments() as $document) { ?>
+                <?php view('friend/document', compact('document')) ?>
+            <?php } ?>
+        </div>
+    </div>
 <div>

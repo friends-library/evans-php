@@ -6,6 +6,7 @@
   "author": "Jared Henderson <jared@netrivet.com>",
   "license": "MIT",
   "scripts": {
+    "reset": "php vendor/bin/phinx rollback -t 0 && php vendor/bin/phinx migrate && php vendor/bin/phinx seed:run",
     "serve": "php -S localhost:1111 -t public/",
     "sass": "node-sass-chokidar sass/ -o public/css/ --output-style compressed --include-path node_modules/normalize.css/ --include-path node_modules/bootstrap/scss/",
     "watch:sass": "node-sass-chokidar sass/ -o public/css/ --output-style compressed --include-path node_modules/normalize.css/ --include-path node_modules/bootstrap/scss/ -w sass/* -r",
@@ -14,7 +15,7 @@
     "sync": "browser-sync start --port 5678 --ui-port 2345 --files 'public/css/app.css, public/js/app.js'",
     "start": "yarn sass && yarn postcss && yarn sync & yarn watch:postcss & webpack --watch & yarn watch:sass",
     "lint:php": "cd .lint && ../vendor/bin/phpcs",
-    "preflight": "yarn lint:php"
+    "preflight": "yarn lint:php && vendor/bin/peridot"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

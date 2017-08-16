@@ -6,6 +6,7 @@ $dotenv->load();
 return [
     'paths' => [
         'migrations' => __DIR__ . '/db/migrations',
+        'seeds' => __DIR__ . '/db/seeds',
     ],
     'environments' => [
         'default_migration_table' => 'migrations',
