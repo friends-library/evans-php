@@ -26,7 +26,7 @@ class FriendController
      * @param string $slug
      * @return void
      */
-    public function slug(string $slug)
+    public function slug(string $slug): void
     {
         $friend = $this->query->getBySlug($slug);
         if (! $friend) {

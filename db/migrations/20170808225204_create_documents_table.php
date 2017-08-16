@@ -12,6 +12,7 @@ class CreateDocumentsTable extends AbstractMigration
         $this->table('documents', ['id' => false, 'primary_key' => 'id'])
             ->addColumn('id', 'string', ['limit' => 36, 'null' => false])
             ->addColumn('title', 'string', ['limit' => 255, 'null' => false])
+            ->addColumn('slug', 'string', ['limit' => 100, 'null' => false])
             ->addColumn('description', 'text', ['null' => true])
             ->addColumn('friend_id', 'string', ['limit' => 36, 'null' => false])
             ->addForeignKey('friend_id', 'friends', 'id', ['delete' => 'CASCADE'])

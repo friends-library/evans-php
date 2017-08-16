@@ -2,11 +2,13 @@
 
 namespace Evans\Models;
 
+use Evans\Models\Traits\HasSlug;
 use Evans\Models\Traits\HasTitle;
 use Evans\Models\Traits\HasDescription;
 
 class Document extends Entity
 {
+    use HasSlug;
     use HasTitle;
     use HasDescription;
 
