@@ -2,6 +2,8 @@
 
 namespace Evans\Models\Traits;
 
+use Evans\Models\Document;
+
 trait HasDocument
 {
     /**

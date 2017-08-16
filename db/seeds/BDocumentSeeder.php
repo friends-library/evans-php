@@ -14,6 +14,7 @@ class BDocumentSeeder extends AbstractSeed
      */
     public function run()
     {
+        // documents
         $docs = [
             [
                 'id' => '9a1ff658-cdac-4707-82a0-cafd9ded7a7a',
@@ -27,6 +28,8 @@ class BDocumentSeeder extends AbstractSeed
 
         $this->table('documents')->insert($docs)->save();
 
+
+        // chapters
         $chapters = [
             [
                 'id' => '230f764c-b342-47d4-a8a0-0ffa9bd88cd6',
@@ -35,15 +38,32 @@ class BDocumentSeeder extends AbstractSeed
                 'document_id' => '9a1ff658-cdac-4707-82a0-cafd9ded7a7a',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id' => 'b1cd7d93-366c-40fe-b5f7-2141ee50a819',
+                'title' => 'Chapter 2',
+                'order' => 2,
+                'document_id' => '9a1ff658-cdac-4707-82a0-cafd9ded7a7a',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ]
         ];
 
         $this->table('chapters')->insert($chapters)->save();
 
+
+        // editions
         $editions = [
             [
                 'id' => '818e26c0-bd5b-445c-8821-166ee18064f2',
                 'type' => 'original',
+                'document_id' => '9a1ff658-cdac-4707-82a0-cafd9ded7a7a',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id' => 'cb1f8c63-0d42-4d39-993b-a7f34ef3ed52',
+                'type' => 'updated',
                 'document_id' => '9a1ff658-cdac-4707-82a0-cafd9ded7a7a',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -52,6 +72,8 @@ class BDocumentSeeder extends AbstractSeed
 
         $this->table('editions')->insert($editions)->save();
 
+
+        // formats
         $formats = [
             [
                 'id' => 'f2d2ee03-87e6-45e4-8c50-c8794b8a7834',
@@ -59,28 +81,23 @@ class BDocumentSeeder extends AbstractSeed
                 'edition_id' => '818e26c0-bd5b-445c-8821-166ee18064f2',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
-            ]
-        ];
-
-        $this->table('formats')->insert($formats)->save();
-
-        $assets = [
+            ],
             [
-                'id' => 'db4896b0-bb0f-4854-a127-cc75f03a28ed',
-                'format_id' => 'f2d2ee03-87e6-45e4-8c50-c8794b8a7834',
-                'chapter_id' => null,
+                'id' => '89f79e81-d310-4f1b-9391-8563b89a9a35',
+                'type' => 'mobi',
+                'edition_id' => '818e26c0-bd5b-445c-8821-166ee18064f2',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'id' => '15901669-e5b0-4930-9f6d-ebbc295fd99c',
-                'format_id' => 'f2d2ee03-87e6-45e4-8c50-c8794b8a7834',
-                'chapter_id' => '818e26c0-bd5b-445c-8821-166ee18064f2',
+                'id' => '7af0682f-c229-4835-aea1-c2fb0c3e1771',
+                'type' => 'pdf',
+                'edition_id' => 'cb1f8c63-0d42-4d39-993b-a7f34ef3ed52',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
-            ]
+            ],
         ];
 
-        $this->table('assets')->insert($assets)->save();
+        $this->table('formats')->insert($formats)->save();
     }
 }
