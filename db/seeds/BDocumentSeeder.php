@@ -19,6 +19,7 @@ class BDocumentSeeder extends AbstractSeed
             [
                 'id' => '9a1ff658-cdac-4707-82a0-cafd9ded7a7a',
                 'title' => 'The Diary and Letters of Rebecca Jones',
+                'slug' => 'diary-and-letters',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                 'friend_id' => 'd7d91b7a-dc84-4e3a-8c83-2812eff5f06e',
                 'created_at' => date('Y-m-d H:i:s'),

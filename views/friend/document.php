@@ -1,4 +1,8 @@
-<h3><?= $document->getTitle() ?></h3>
+<h3>
+    <a href="/<?= $document->getFriend()->getSlug() ?>/<?= $document->getSlug() ?>">
+        <?= $document->getTitle() ?>
+    </a>
+</h3>
 <h4>Editions:</h4>
 <ul>
     <?php foreach ($document->getEditions() as $edition): ?>

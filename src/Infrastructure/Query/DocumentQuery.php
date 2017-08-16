@@ -2,11 +2,11 @@
 
 namespace Evans\Infrastructure\Query;
 
-use Evans\Models\Friend;
+use Evans\Models\Document;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Evans\Infrastructure\Mappers\FriendMapper;
 
-class FriendQuery
+class DocumentQuery
 {
     /**
      * @var QueryBuilder
@@ -19,6 +19,11 @@ class FriendQuery
     protected $mapper;
 
     /**
+     * @var string
+     */
+    protected $friendSlug;
+
+    /**
      * @param QueryBuilder $db
      * @param FriendMapper $mapper
      */
@@ -29,12 +34,24 @@ class FriendQuery
     }
 
     /**
+     * Scope query to a specific friend by slug
+     *
+     * @param string $friendSlug
+     * @return $this
+     */
+    public function whereFriendSlug(string $friendSlug)
+    {
+        $this->friendSlug = $friendSlug;
+        return $this;
+    }
+
+    /**
      * Get friend by slug
      *
      * @param string $slug
-     * @return ?Friend
+     * @return ?Document
      */
-    public function getBySlug(string $slug): ?Friend
+    public function getBySlug(string $slug): ?Document
     {
         $results = $this->db
             ->select(
@@ -69,15 +86,20 @@ class FriendQuery
             ->leftJoin('d', 'chapters', 'c', 'c.document_id = d.id')
             ->leftJoin('d', 'editions', 'e', 'e.document_id = d.id')
             ->leftJoin('e', 'formats', 'fm', 'fm.edition_id = e.id')
-            ->where('fr.slug = :slug')
-            ->setParameter('slug', $slug)
+            ->where('fr.slug = :friend_slug')
+            ->andWhere('d.slug = :document_slug')
+            ->setParameter('friend_slug', $this->friendSlug)
+            ->setParameter('document_slug', $slug)
             ->execute()
             ->fetchAll();
+
+        unset($this->friendSlug); // reset query state
 
         if (empty($results)) {
             return null;
         }
 
-        return $this->mapper->map($results);
+        $friend = $this->mapper->map($results);
+        return $friend->getDocuments()[0];
     }
 }
