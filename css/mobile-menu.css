@@ -34,3 +34,11 @@ body {
 .slideout-open .slideout-menu {
   display: block;
 }
+
+.mobile-toggle {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 26px;
+}
