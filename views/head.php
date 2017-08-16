@@ -16,4 +16,15 @@
         </nav>
 
         <main id="site" class="slideout-panel">
-            <button id="mobile-toggle">☰</button>
+            <div class="block container-fluid nav-block">
+                <div class="row">
+                    <div class="col">
+                        <a id="mobile-toggle" class="mobile-toggle">☰</a>
+                        <p>
+                            <a href="/" class="logo">
+                                Friends Library
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
