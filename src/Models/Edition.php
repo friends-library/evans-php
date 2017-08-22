@@ -16,6 +16,11 @@ class Edition extends Entity
     protected $formats = [];
 
     /**
+     * @var int
+     */
+    protected $pages;
+
+    /**
      * Set formats
      *
      * @param array<Format> $formats
@@ -46,5 +51,25 @@ class Edition extends Entity
     public function getFormats(): array
     {
         return $this->formats;
+    }
+
+    /**
+     * Set pages
+     *
+     * @param int $pages
+     */
+    public function setPages(int $pages): void
+    {
+        $this->pages = $pages;
+    }
+
+    /**
+     * Get pages
+     *
+     * @return int
+     */
+    public function getPages(): int
+    {
+        return $this->pages;
     }
 }
