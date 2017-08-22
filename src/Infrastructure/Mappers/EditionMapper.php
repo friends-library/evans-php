@@ -34,6 +34,7 @@ class EditionMapper extends EntityMapper
     public function map(array $results): Edition
     {
         $edition = $this->mapEntity($results[0]);
+        $edition->setPages((int) $results[0]['edition_pages']);
 
         // shallow reference to the document
         if (isset($results[0]['document_id'])) {

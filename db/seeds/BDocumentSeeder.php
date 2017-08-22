@@ -58,6 +58,7 @@ class BDocumentSeeder extends AbstractSeed
             [
                 'id' => '818e26c0-bd5b-445c-8821-166ee18064f2',
                 'type' => 'original',
+                'pages' => 135,
                 'document_id' => '9a1ff658-cdac-4707-82a0-cafd9ded7a7a',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -65,6 +66,7 @@ class BDocumentSeeder extends AbstractSeed
             [
                 'id' => 'cb1f8c63-0d42-4d39-993b-a7f34ef3ed52',
                 'type' => 'updated',
+                'pages' => 114,
                 'document_id' => '9a1ff658-cdac-4707-82a0-cafd9ded7a7a',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),

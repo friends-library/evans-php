@@ -143,6 +143,11 @@ describe('FriendMapper->map()', function () use ($data) {
             expect($this->editions[0]->getType())->to->equal('updated');
             expect($this->editions[1]->getType())->to->equal('original');
         });
+
+        it('have correct pages', function () {
+            expect($this->editions[0]->getPages())->to->equal(444);
+            expect($this->editions[1]->getPages())->to->equal(444);
+        });
     });
 
     describe('the mapped document edition formats', function () {
