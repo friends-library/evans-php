@@ -1,0 +1,23 @@
+.document-summary {
+  color: #222;
+  display: block;
+  background-color: #ededed;
+  padding: 0.15em 0.75em;
+  text-decoration: none;
+}
+
+.document-summary:hover {
+  background-color: #ddd;
+}
+
+.document-summary__meta .fa {
+  width: 1.125em;
+}
+
+.document-summary__meta__formats {
+  margin: 0 1.5em;
+}
+
+.document-summary__meta__length .fa {
+  width: 1em;
+}

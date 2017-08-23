@@ -6,6 +6,7 @@
         <title>Friends Library</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" media="all" rel="stylesheet">
         <link href="/css/vendor.css" media="all" rel="stylesheet" />
         <link href="/css/app.css" media="all" rel="stylesheet" />
         <script src="/js/app.js" defer></script>
