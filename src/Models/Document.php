@@ -28,6 +28,40 @@ class Document extends Entity
     protected $friend;
 
     /**
+     * Get all unique format types
+     *
+     * @return array
+     */
+    public function getUniqueFormatTypes(): array
+    {
+        $formatTypes = [];
+        foreach ($this->getEditions() as $edition) {
+            foreach ($edition->getFormats() as $format) {
+                $formatTypes[] = $format->getType();
+            }
+        }
+
+        return array_unique($formatTypes);
+    }
+
+    /**
+     * Get shortest edition by pages
+     *
+     * @return Edition
+     */
+    public function getShortestEdition(): Edition
+    {
+        $editions = $this->getEditions();
+        return array_reduce($editions, function (?Edition $carry, Edition $edition) {
+            if (! $carry) {
+                return $edition;
+            }
+
+            return $edition->getPages() < $carry->getPages() ? $edition : $carry;
+        });
+    }
+
+    /**
      * Set the document's friend
      *
      * @param Friend $friend

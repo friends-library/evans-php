@@ -1,0 +1,20 @@
+.edition-original {
+  color: orange;
+}
+.edition-updated {
+  color: green;
+}
+.edition-modernized {
+  color: red;
+}
+
+
+.format-mobi {
+  color: purple;
+}
+.format-pdf {
+  color: blue;
+}
+.format-epub {
+  color: indigo;
+}

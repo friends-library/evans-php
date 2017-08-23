@@ -1,2 +1,4 @@
-@import "mobile-menu.css";
-@import "blocks/nav.css";
+@import "mobile-menu";
+@import "colors";
+@import "blocks/all";
+@import "components/all";
