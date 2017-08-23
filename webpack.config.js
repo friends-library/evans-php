@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const fontMagician = require('postcss-font-magician');
 
 module.exports = {
   entry: {
@@ -28,5 +29,24 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: [
+          fontMagician({
+            variants: {
+              'Roboto Slab': {
+                '400': [],
+              },
+              'Raleway': {
+                '400': [],
+              },
+            },
+            foundries: ['google']
+          })
+        ]
+      }
+    })
+  ]
 };
