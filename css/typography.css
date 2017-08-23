@@ -1,0 +1,17 @@
+body {
+  color: #1d1d1d;
+  font-family: "Raleway";
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto Slab";
+}
+
+p {
+  line-height: 1.35em;
+}
+
+a {
+  color: #1d1d1d;
+}
