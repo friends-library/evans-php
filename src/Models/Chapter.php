@@ -3,12 +3,12 @@
 namespace Evans\Models;
 
 use Evans\Models\Traits\HasTitle;
-use Evans\Models\Traits\HasDocument;
+use Evans\Models\Traits\HasEdition;
 
 class Chapter extends Entity
 {
     use HasTitle;
-    use HasDocument;
+    use HasEdition;
 
     /**
      * @var int

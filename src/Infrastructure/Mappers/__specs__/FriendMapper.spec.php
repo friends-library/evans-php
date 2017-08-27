@@ -21,8 +21,10 @@ describe('FriendMapper->map()', function () use ($data) {
         $this->data = $data;
         $this->mapper = new FriendMapper(
             new DocumentMapper(
-                new ChapterMapper(),
-                new EditionMapper(new FormatMapper())
+                new EditionMapper(
+                    new ChapterMapper(),
+                    new FormatMapper()
+                )
             )
         );
     });
@@ -88,34 +90,6 @@ describe('FriendMapper->map()', function () use ($data) {
         });
     });
 
-    describe('the mapped document chapters', function () {
-        beforeEach(function () {
-            $this->friend = $this->mapper->map($this->data);
-            $this->doc = $this->friend->getDocuments()[0];
-            $this->chapters = $this->doc->getChapters();
-        });
-
-        it('are correct in number', function () {
-            expect(count($this->chapters))->to->equal(2);
-            expect($this->chapters[0])->to->be->an->instanceof(Chapter::class);
-            expect($this->chapters[1])->to->be->an->instanceof(Chapter::class);
-        });
-
-        it('have the correct id', function () {
-            expect($this->chapters[0]->getId())->to->equal('chapter-id-1');
-            expect($this->chapters[1]->getId())->to->equal('chapter-id-2');
-        });
-
-        it('have correct orders', function () {
-            expect($this->chapters[0]->getOrder())->to->equal(1);
-            expect($this->chapters[1]->getOrder())->to->equal(2);
-        });
-
-        it('have a reference to the document', function () {
-            expect($this->chapters[0]->getDocument())->to->equal($this->doc);
-        });
-    });
-
     describe('the mapped document editions', function () {
         beforeEach(function () {
             $friend = $this->mapper->map($this->data);
@@ -145,13 +119,49 @@ describe('FriendMapper->map()', function () use ($data) {
         });
 
         it('have correct pages', function () {
-            expect($this->editions[0]->getPages())->to->equal(444);
-            expect($this->editions[1]->getPages())->to->equal(444);
+            expect($this->editions[0]->getPages())->to->equal(114);
+            expect($this->editions[1]->getPages())->to->equal(135);
         });
 
         it('have correct descriptions', function () {
             expect($this->editions[0]->getDescription())->to->equal('Updated edition is updated.');
             expect($this->editions[1]->getDescription())->to->equal('');
+        });
+    });
+
+    describe('the mapped edition chapters', function () {
+        beforeEach(function () {
+            $this->friend = $this->mapper->map($this->data);
+            $this->doc = $this->friend->getDocuments()[0];
+            $this->editions = $this->doc->getEditions();
+            $this->updatedChaps = $this->editions[0]->getChapters();
+            $this->origChaps = $this->editions[1]->getChapters();
+        });
+
+        it('are correct in number', function () {
+            expect(count($this->origChaps))->to->equal(2);
+            expect($this->origChaps[0])->to->be->an->instanceof(Chapter::class);
+            expect($this->origChaps[1])->to->be->an->instanceof(Chapter::class);
+            expect(count($this->updatedChaps))->to->equal(1);
+            expect($this->updatedChaps[0])->to->be->an->instanceof(Chapter::class);
+        });
+
+        it('have the correct id', function () {
+            expect($this->origChaps[0]->getId())->to->equal('chap-1-id-edition-original');
+            expect($this->origChaps[1]->getId())->to->equal('chap-2-id-edition-original');
+            expect($this->updatedChaps[0]->getId())->to->equal('chap-1-id-edition-updated');
+        });
+
+        it('have correct orders', function () {
+            expect($this->origChaps[0]->getOrder())->to->equal(1);
+            expect($this->origChaps[1]->getOrder())->to->equal(2);
+            expect($this->updatedChaps[0]->getOrder())->to->equal(1);
+        });
+
+        it('have a reference to the document', function () {
+            expect($this->origChaps[0]->getEdition())->to->equal($this->editions[1]);
+            expect($this->origChaps[1]->getEdition())->to->equal($this->editions[1]);
+            expect($this->updatedChaps[0]->getEdition())->to->equal($this->editions[0]);
         });
     });
 

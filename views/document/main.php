@@ -12,19 +12,20 @@
                 <?= $document->getDescription() ?>
             </p>
 
-            <h3>Chapters:</h3>
-
-            <ul>
-                <?php foreach ($document->getChapters() as $chapter): ?>
-                    <li><?= $chapter->getTitle() ?></li>
-                <?php endforeach; ?>
-            </ul>
-
             <h3>Editions:</h3>
 
             <?php foreach ($document->getEditions() as $edition): ?>
                 <div>
                     <h4><?= $edition->getType() ?></h4>
+
+                    <h3>Chapters:</h3>
+
+                    <ul>
+                        <?php foreach ($edition->getChapters() as $chapter): ?>
+                            <li><?= $chapter->getTitle() ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+
                     <ul>
                         <?php foreach ($edition->getFormats() as $format): ?>
                             <li><?= $format->getType() ?></li>

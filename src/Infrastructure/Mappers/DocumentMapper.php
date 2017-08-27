@@ -13,19 +13,15 @@ class DocumentMapper extends EntityMapper
     protected $class = Document::class;
 
     /**
-     * @var ChapterMapper
+     * @var EditionMapper
      */
-    protected $chapterMapper;
+    protected $editionMapper;
 
     /**
-     * @param ChapterMapper $chapterMapper
      * @param EditionMapper $editionMapper
      */
-    public function __construct(
-        ChapterMapper $chapterMapper,
-        EditionMapper $editionMapper
-    ) {
-        $this->chapterMapper = $chapterMapper;
+    public function __construct(EditionMapper $editionMapper)
+    {
         $this->editionMapper = $editionMapper;
     }
 
@@ -46,37 +42,10 @@ class DocumentMapper extends EntityMapper
             $document->setFriend($friend);
         }
 
-        $chapters = $this->mapChapters($results, $document);
-        $document->setChapters($chapters);
-
         $editions = $this->mapEditions($results, $document);
         $document->setEditions($editions);
 
         return $document;
-    }
-
-    /**
-     * Map db results to document chapters
-     *
-     * @param array $results
-     * @param Document $document
-     * @return array<Chapter>
-     */
-    protected function mapChapters(array $results, Document $document): array
-    {
-        $chapters = [];
-        foreach ($results as $result) {
-            $chapterId = $result['chapter_id'];
-            if (isset($chapters[$chapterId])) {
-                continue;
-            }
-
-            $chapter = $this->chapterMapper->map($result);
-            $chapter->setDocument($document);
-            $chapters[$chapterId] = $chapter;
-        }
-
-        return array_values($chapters);
     }
 
     /**
