@@ -127,6 +127,16 @@ describe('FriendMapper->map()', function () use ($data) {
             expect($this->editions[0]->getDescription())->to->equal('Updated edition is updated.');
             expect($this->editions[1]->getDescription())->to->equal('');
         });
+
+        it('have correct word counts', function () {
+            expect($this->editions[0]->getWordCount())->to->equal(4000);
+            expect($this->editions[1]->getWordCount())->to->equal(6000);
+        });
+
+        it('have correct seconds', function () {
+            expect($this->editions[0]->getSeconds())->to->equal(4200);
+            expect($this->editions[1]->getSeconds())->to->equal(6200);
+        });
     });
 
     describe('the mapped edition chapters', function () {
