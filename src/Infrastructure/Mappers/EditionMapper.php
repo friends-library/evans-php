@@ -52,6 +52,9 @@ class EditionMapper extends EntityMapper
             $edition->setDocument($document);
         }
 
+        $edition->setWordCount((int) $results[0]['edition_word_count']);
+        $edition->setSeconds((int) $results[0]['edition_seconds']);
+
         $formats = $this->mapFormats($results, $edition);
         $edition->setFormats($formats);
 

@@ -28,6 +28,16 @@ class Edition extends Entity
     protected $pages;
 
     /**
+     * @var int
+     */
+    protected $wordCount;
+
+    /**
+     * @var int
+     */
+    protected $seconds;
+
+    /**
      * Set chapters
      *
      * @param array<Chapter> $chapters
@@ -111,5 +121,45 @@ class Edition extends Entity
     public function getPages(): int
     {
         return $this->pages;
+    }
+
+    /**
+     * Set word count
+     *
+     * @param int $wordCount
+     */
+    public function setWordCount(int $wordCount): void
+    {
+        $this->wordCount = $wordCount;
+    }
+
+    /**
+     * Get word count
+     *
+     * @return int
+     */
+    public function getWordCount(): int
+    {
+        return $this->wordCount;
+    }
+
+    /**
+     * Set seconds
+     *
+     * @param int $seconds
+     */
+    public function setSeconds(int $seconds): void
+    {
+        $this->seconds = $seconds;
+    }
+
+    /**
+     * Get seconds
+     *
+     * @return int
+     */
+    public function getSeconds(): int
+    {
+        return $this->seconds;
     }
 }

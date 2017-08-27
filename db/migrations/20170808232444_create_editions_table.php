@@ -15,7 +15,18 @@ class CreateEditionsTable extends AbstractMigration
         $this->table('editions', ['id' => false, 'primary_key' => 'id'])
             ->addColumn('id', 'string', ['limit' => 36, 'null' => false])
             ->addColumn('type', 'enum', ['values' => $types, 'null' => false])
-            ->addColumn('pages', 'integer', ['limit' => MysqlAdapter::INT_SMALL, 'null' => false])
+            ->addColumn('pages', 'integer', [
+                'limit' => MysqlAdapter::INT_SMALL,
+                'null' => false
+            ])
+            ->addColumn('word_count', 'integer', [
+                'limit' => MysqlAdapter::INT_MEDIUM,
+                'null' => false
+            ])
+            ->addColumn('seconds', 'integer', [
+                'limit' => MysqlAdapter::INT_SMALL,
+                'null' => false
+            ])
             ->addColumn('description', 'text', ['null' => true])
             ->addColumn('document_id', 'string', ['limit' => 36, 'null' => false])
             ->addForeignKey('document_id', 'documents', 'id', ['delete' => 'CASCADE'])
