@@ -4,6 +4,7 @@ namespace Evans\Infrastructure\Mappers;
 
 use Evans\Models\Document;
 use Evans\Models\Chapter;
+use Evans\Models\Edition;
 
 class ChapterMapper extends EntityMapper
 {
@@ -23,11 +24,11 @@ class ChapterMapper extends EntityMapper
         $chapter = $this->mapEntity($result);
         $chapter->setOrder((int) $result['chapter_order']);
 
-        // shallow reference to the document
-        if ($result['document_id']) {
-            $document = new Document();
-            $document->setId($result['document_id']);
-            $chapter->setDocument($document);
+        // shallow reference to the edition
+        if ($result['edition_id']) {
+            $edition = new Edition();
+            $edition->setId($result['edition_id']);
+            $chapter->setEdition($edition);
         }
 
         return $chapter;

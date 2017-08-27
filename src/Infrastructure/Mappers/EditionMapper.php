@@ -13,15 +13,24 @@ class EditionMapper extends EntityMapper
     protected $class = Edition::class;
 
     /**
+     * @var ChapterMapper
+     */
+    protected $chapterMapper;
+
+    /**
      * @var FormatMapper
      */
     protected $formatMapper;
 
     /**
+     * @param ChapterMapper $chapterMapper
      * @param FormatMapper $formatMapper
      */
-    public function __construct(FormatMapper $formatMapper)
-    {
+    public function __construct(
+        ChapterMapper $chapterMapper,
+        FormatMapper $formatMapper
+    ) {
+        $this->chapterMapper = $chapterMapper;
         $this->formatMapper = $formatMapper;
     }
 
@@ -46,7 +55,34 @@ class EditionMapper extends EntityMapper
         $formats = $this->mapFormats($results, $edition);
         $edition->setFormats($formats);
 
+        $chapters = $this->mapChapters($results, $edition);
+        $edition->setChapters($chapters);
+
         return $edition;
+    }
+
+    /**
+     * Map db results to edition chapters
+     *
+     * @param array $results
+     * @param Edition $edition
+     * @return array<Chapter>
+     */
+    protected function mapChapters(array $results, Edition $edition): array
+    {
+        $chapters = [];
+        foreach ($results as $result) {
+            $chapterId = $result['chapter_id'];
+            if (isset($chapters[$chapterId])) {
+                continue;
+            }
+
+            $chapter = $this->chapterMapper->map($result);
+            $chapter->setEdition($edition);
+            $chapters[$chapterId] = $chapter;
+        }
+
+        return array_values($chapters);
     }
 
     /**

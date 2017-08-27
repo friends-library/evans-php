@@ -13,11 +13,6 @@ class Document extends Entity
     use HasDescription;
 
     /**
-     * @var array<Chapter>
-     */
-    protected $chapters = [];
-
-    /**
      * @var array<Edition>
      */
     protected $editions = [];
@@ -79,39 +74,6 @@ class Document extends Entity
     public function getFriend(): Friend
     {
         return $this->friend;
-    }
-
-    /**
-     * Set chapters
-     *
-     * @param array<Chapter> $chapters
-     */
-    public function setChapters(array $chapters): void
-    {
-        $this->chapters = [];
-        foreach ($chapters as $document) {
-            $this->addChapter($document);
-        }
-    }
-
-    /**
-     * Add a document
-     *
-     * @param Chapter $document
-     */
-    public function addChapter(Chapter $document): void
-    {
-        $this->chapters[] = $document;
-    }
-
-    /**
-     * Get chapters
-     *
-     * @return array<Chapter>
-     */
-    public function getChapters(): array
-    {
-        return $this->chapters;
     }
 
     /**
