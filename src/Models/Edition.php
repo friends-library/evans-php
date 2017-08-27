@@ -4,11 +4,13 @@ namespace Evans\Models;
 
 use Evans\Models\Traits\HasType;
 use Evans\Models\Traits\HasDocument;
+use Evans\Models\Traits\HasDescription;
 
 class Edition extends Entity
 {
     use HasType;
     use HasDocument;
+    use HasDescription;
 
     /**
      * @var array<Format>

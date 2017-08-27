@@ -16,6 +16,7 @@ class CreateEditionsTable extends AbstractMigration
             ->addColumn('id', 'string', ['limit' => 36, 'null' => false])
             ->addColumn('type', 'enum', ['values' => $types, 'null' => false])
             ->addColumn('pages', 'integer', ['limit' => MysqlAdapter::INT_SMALL, 'null' => false])
+            ->addColumn('description', 'text', ['null' => true])
             ->addColumn('document_id', 'string', ['limit' => 36, 'null' => false])
             ->addForeignKey('document_id', 'documents', 'id', ['delete' => 'CASCADE'])
             ->addColumn('created_at', 'timestamp')

@@ -35,7 +35,8 @@ abstract class EntityMapper
         }
 
         if (method_exists($entity, 'setDescription')) {
-            $entity->setDescription($result["{$slug}_description"]);
+            $description = $result["{$slug}_description"] ?? '';
+            $entity->setDescription($description);
         }
 
         if (method_exists($entity, 'setSlug')) {
