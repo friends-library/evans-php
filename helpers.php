@@ -3,6 +3,8 @@
 use Evans\Models\Entity;
 use Evans\Models\Document;
 use Evans\Models\Friend;
+use Evans\Models\Format;
+use Khill\Duration\Duration;
 
 /**
  * Render a vew template
@@ -58,9 +60,47 @@ function url(Entity $entity): string
             $friendSlug = $entity->getFriend()->getSlug();
             $documentSlug = $entity->getSlug();
             return "/{$friendSlug}/{$documentSlug}";
+        case Format::class:
+            $type = $entity->getType();
+            $edition = $entity->getEdition();
+            $document = $edition->getDocument();
+            $editionType = $edition->getType();
+            if ($type === 'softcover') {
+                return url($document) . "/{$editionType}/softcover";
+            }
+            $base = getenv('EXTERNAL_ASSET_URL_BASE') . url($document);
+            $filename = filenameify($document->getTitle());
+            return "{$base}/{$editionType}/{$filename}.{$type}";
         default:
             return '';
     }
+}
+
+/**
+ * Get human readable audio duration from seconds
+ *
+ * @param int $seconds
+ * @return string
+ */
+function duration(int $seconds): string
+{
+    $duration = new Duration($seconds);
+    $human = $duration->humanize();
+    return preg_replace('/ [0-9]+s$/', '', $human);
+}
+
+/**
+ * Transform a title into a filename
+ *
+ * @param string $title
+ * @return string
+ */
+function filenameify(string $title): string
+{
+    $filename = preg_replace('/[^A-Za-z0-9 ]./', '', $title);
+    $filename = preg_replace('/^The /', '', $filename);
+    $filename = str_replace(' ', '_', $filename);
+    return $filename;
 }
 
 /**

@@ -1,0 +1,13 @@
+.document-edition {
+  background: lemonchiffon;
+  padding: 0.25em 1.5em;
+  margin-bottom: 1em;
+}
+
+.document-edition__stats {
+  font-style: italic;
+}
+
+.document-edition__stats > span {
+  margin-right: 0.5em;
+}
