@@ -58,6 +58,7 @@ class FriendQuery
                 'e.id as edition_id',
                 'e.type as edition_type',
                 'e.pages as edition_pages',
+                'e.description as edition_description',
                 'e.created_at as edition_created_at',
                 'e.updated_at as edition_updated_at',
                 'fm.id as format_id',
