@@ -10,7 +10,8 @@
         "robmorgan/phinx": "^0.8.1",
         "doctrine/dbal": "^2.6",
         "cakephp/chronos": "^1.1",
-        "symfony/http-kernel": "^3.3"
+        "symfony/http-kernel": "^3.3",
+        "khill/php-duration": "^1.0"
     },
     "authors": [
         {

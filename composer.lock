@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f5fe9e710d4aa71c7852c65b554838a5",
+    "content-hash": "d22ea6d5a93979640c3004b4c2e85916",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -623,6 +623,56 @@
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
             "time": "2017-04-19T20:17:43+00:00"
+        },
+        {
+            "name": "khill/php-duration",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kevinkhill/php-duration.git",
+                "reference": "4b1fe107be4bf2256378bafb1b29e6b3e0545588"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kevinkhill/php-duration/zipball/4b1fe107be4bf2256378bafb1b29e6b3e0545588",
+                "reference": "4b1fe107be4bf2256378bafb1b29e6b3e0545588",
+                "shasum": ""
+            },
+            "require-dev": {
+                "doctrine/instantiator": "1.0.4",
+                "phpunit/phpunit": "~4.8",
+                "satooshi/php-coveralls": "~1.0",
+                "symfony/config": "~2.0",
+                "symfony/console": "~2.0",
+                "symfony/filesystem": "~2.0",
+                "symfony/stopwatch": "~2.0",
+                "symfony/yaml": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Khill\\Duration\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Hill",
+                    "email": "kevinkhill@gmail.com",
+                    "role": "Creator"
+                }
+            ],
+            "description": "Converts between colon formatted time, human-readable time and seconds",
+            "keywords": [
+                "convert",
+                "duration",
+                "seconds",
+                "time"
+            ],
+            "time": "2016-09-10T18:05:06+00:00"
         },
         {
             "name": "nikic/fast-route",
