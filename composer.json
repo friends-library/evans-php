@@ -24,7 +24,7 @@
         "Evans\\": "src"
       },
       "files": [
-        "helpers.php"
+        "src/helpers/index.php"
       ]
     },
     "require-dev": {
