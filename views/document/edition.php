@@ -29,4 +29,14 @@
             </li>
         <?php endforeach; ?>
     </ul>
+    <?php if (count($edition->getChapters()) > 1) : ?>
+        <div class="document-edition__chapters">
+            <h4>By Chapters</h4>
+            <?php foreach ($edition->getChapters() as $chapter) : ?>
+                <div class="document-edition__chapters__chapter">
+                    <?php view('document/chapter', compact('chapter')) ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 </div>

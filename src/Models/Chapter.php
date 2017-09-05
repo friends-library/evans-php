@@ -34,4 +34,18 @@ class Chapter extends Entity
     {
         return $this->order;
     }
+
+    /**
+     * Get formats applicable to chapters
+     *
+     * @return array<Format>
+     */
+    public function getFormats(): array
+    {
+        $formats = $this->getEdition()->getFormats();
+        return array_values(array_filter($formats, function (Format $format) {
+            $type = $format->getType();
+            return ! in_array($type, ['softcover', 'audio']);
+        }));
+    }
 }
