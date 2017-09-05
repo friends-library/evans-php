@@ -6,6 +6,7 @@ use Closure;
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
 use Illuminate\Container\Container;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
@@ -111,7 +112,13 @@ class Application extends Container
             $handler[0] = $this->make($handler[0]);
         }
 
-        return call_user_func_array($handler, $vars);
+        $result = call_user_func_array($handler, $vars);
+        if ($result instanceof Response) {
+            $result->send();
+            return;
+        }
+
+        return $result;
     }
 
     /**

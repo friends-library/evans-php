@@ -15,7 +15,7 @@ class DatabaseProvider implements ServiceProviderInterface
      */
     public function register(Container $container): void
     {
-        $container->singleton(QueryBuilder::class, function (Container $container) {
+        $container->bind(QueryBuilder::class, function (Container $container) {
             $config = new Configuration();
             if (getenv('DEBUG_QUERIES') === true) {
                 $config->setSQLLogger(new DumpSqlLogger());
