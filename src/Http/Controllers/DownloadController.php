@@ -4,6 +4,7 @@ namespace Evans\Http\Controllers;
 
 use Evans\Models\Format;
 use Evans\Models\Document;
+use Webpatser\Uuid\Uuid;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Evans\Infrastructure\Query\DocumentQuery;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -173,14 +174,16 @@ class DownloadController
         try {
             $this->db
                 ->insert('downloads')
+                ->setValue('id', '?')
                 ->setValue('format_id', '?')
                 ->setValue('chapter_id', '?')
                 ->setValue('user_agent', '?')
                 ->setValue('ip', '?')
-                ->setParameter(0, $formatId)
-                ->setParameter(1, $chapterId)
-                ->setParameter(2, $_SERVER['HTTP_USER_AGENT'] ?? '')
-                ->setParameter(3, $this->getIpAddress())
+                ->setParameter(0, (string) Uuid::generate(4))
+                ->setParameter(1, $formatId)
+                ->setParameter(2, $chapterId)
+                ->setParameter(3, $_SERVER['HTTP_USER_AGENT'] ?? '')
+                ->setParameter(4, $this->getIpAddress())
                 ->execute();
         } catch (\Exception $e) {
             // ¯\_(ツ)_/¯

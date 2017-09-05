@@ -11,7 +11,9 @@
         "doctrine/dbal": "^2.6",
         "cakephp/chronos": "^1.1",
         "symfony/http-kernel": "^3.3",
-        "khill/php-duration": "^1.0"
+        "khill/php-duration": "^1.0",
+        "webpatser/laravel-uuid": "^3.0",
+        "jaybizzle/crawler-detect": "^1.2"
     },
     "authors": [
         {

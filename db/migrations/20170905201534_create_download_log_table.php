@@ -9,7 +9,8 @@ class CreateDownloadLogTable extends AbstractMigration
      */
     public function change()
     {
-        $this->table('downloads', ['id' => false])
+        $this->table('downloads', ['id' => false, 'primary_key' => 'id'])
+            ->addColumn('id', 'string', ['limit' => 36, 'null' => false])
             ->addColumn('format_id', 'string', ['limit' => 36, 'null' => false])
             ->addForeignKey('format_id', 'formats', 'id', ['delete' => 'CASCADE'])
             ->addColumn('chapter_id', 'string', ['limit' => 36, 'null' => false])
