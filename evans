@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+
+use Dotenv\Dotenv;
+use Evans\Application;
+use Evans\Cli\Commands\CleanDownloadLogs;
+use Evans\Infrastructure\Providers\DatabaseProvider;
+use Symfony\Component\Console\Application as ConsoleApplication;
+
+require __DIR__ . '/vendor/autoload.php';
+
+/**
+ * Load the environment
+ */
+$dotenv = new Dotenv(__DIR__);
+$dotenv->load();
+
+/**
+ * Create the application
+ */
+$app = new Application(__DIR__ );
+
+/**
+ * Register service providers
+ */
+$app->register(new DatabaseProvider());
+
+
+$cli = new ConsoleApplication();
+$cli->add($app->make(CleanDownloadLogs::class));
+$cli->run();
