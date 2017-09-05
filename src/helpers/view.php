@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Render a vew template
+ * Render a view template
  *
  * @param string $template
  * @param array $vars
@@ -14,7 +14,7 @@ function view(string $template, array $vars = []): void
 }
 
 /**
- * Render a vew template with basic whitespace stripping
+ * Render a view template with basic whitespace stripping
  *
  * @param string $template
  * @param array $vars

@@ -3,6 +3,7 @@
 use Evans\Models\Document;
 use Evans\Models\Friend;
 use Evans\Models\Format;
+use Evans\Models\Chapter;
 use Evans\Models\Edition;
 
 require_once __DIR__ . '/../index.php';
@@ -44,5 +45,31 @@ describe('url()', function () {
         $url = url($this->format);
 
         expect($url)->to->equal('/download/rebecca-jones/diary/updated/pdf');
+    });
+
+    it('specifies chapter in downloadable asset link if passed', function () {
+        $this->format->setType('pdf');
+        $chapter1 = new Chapter();
+        $chapter1->setOrder(1);
+        $chapter1->setTitle('Preface');
+        $chapter2 = new Chapter();
+        $chapter2->setOrder(2);
+        $chapter2->setTitle('chapter-1');
+        $this->edition->setChapters([$chapter1, $chapter2]);
+
+        $url1 = url($this->format, $chapter1);
+        $url2 = url($this->format, $chapter2);
+
+        expect(
+            $url1
+        )->to->equal(
+            '/download/rebecca-jones/diary/updated/pdf/preface'
+        );
+
+        expect(
+            $url2
+        )->to->equal(
+            '/download/rebecca-jones/diary/updated/pdf/chapter-1'
+        );
     });
 });

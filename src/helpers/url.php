@@ -9,9 +9,10 @@ use Evans\Models\Format;
  * Get the url for an entity
  *
  * @param Entity $entity
+ * @param ?Entity $modifier
  * @return string
  */
-function url(Entity $entity): string
+function url(Entity $entity, ?Entity $modifier = null): string
 {
     switch (get_class($entity)) {
         case Friend::class:
@@ -28,7 +29,11 @@ function url(Entity $entity): string
             if (in_array($type, ['softcover', 'audio'], true)) {
                 return url($document) . "/{$editionType}/{$type}";
             }
-            return '/download' . url($document) . "/{$editionType}/{$type}";
+            $url = '/download' . url($document) . "/{$editionType}/{$type}";
+            if ($modifier) {
+                $url .= '/' . slugify($modifier->getTitle());
+            }
+            return $url;
         default:
             return '';
     }
@@ -46,4 +51,18 @@ function filenameify(string $title): string
     $filename = preg_replace('/^The /', '', $filename);
     $filename = str_replace(' ', '_', $filename);
     return $filename;
+}
+
+/**
+ * Transorm a title into a url slug
+ *
+ * @param string $string
+ * @return string
+ */
+function slugify(string $string): string
+{
+    $string = str_replace(array( "'", "’" ), '', stripslashes($string));
+    $string = strtolower(preg_replace('`[^A-Za-z0-9]+`', '-', $string));
+    $string = preg_replace("/^the-/", '', $string);
+    return trim($string, '-');
 }
