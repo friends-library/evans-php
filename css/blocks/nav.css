@@ -1,19 +1,28 @@
 .nav-block {
   text-align: center;
-  background-color: #333;
+  background-color: #1e87f0;
   color: white;
   position: sticky;
   top: 0;
   z-index: 1;
-  -webkit-font-smoothing: subpixel-antialiased;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 .logo {
   color: white;
   text-decoration: none;
-  font-family: "Roboto Slab";
 }
 
 .logo:hover {
   text-decoration: underline;
+}
+
+.mobile-toggle {
+  cursor: pointer;
+  position: absolute;
+  color: #fff;
+  top: 3px;
+  left: 15px;
+  font-size: 26px;
 }
