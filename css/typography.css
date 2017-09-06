@@ -1,17 +1,33 @@
+@font-face {
+    font-family: 'proximanova-light';
+    src: url('../fonts/proximanova-light-webfont.woff2') format('woff2'),
+         url('../fonts/proximanova-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+  font-family: proximanova-light, sans-serif;
+  color: #666;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
-  color: #1d1d1d;
-  font-family: "Raleway";
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Roboto Slab";
+  letter-spacing: 1px;
+  color: #222;
+  font-weight: 300 !important;
 }
 
 p {
   line-height: 1.35em;
 }
 
-a {
-  color: #1d1d1d;
+a:hover {
+  text-decoration: none;
+  border-bottom: 2px solid #1e87f0;
 }

@@ -1,3 +1,9 @@
+.document__byline {
+  margin-top: -0.25em;
+  /*font-style: italic;*/
+  /*margin-left: 0.5em;*/
+}
+
 .document-edition {
   background: lemonchiffon;
   padding: 0.25em 1.5em;

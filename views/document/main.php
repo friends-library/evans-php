@@ -1,20 +1,20 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <h1><?= $document->getTitle() ?></h1>
-            <h2>
-                by <a href="/friend/<?= $document->getFriend()->getSlug() ?>">
-                    <?= $document->getFriend()->getName() ?>
-                </a>
-            </h2>
+<div class="document uk-container">
+    <h1 class="uk-heading-primary"><?= $document->getTitle() ?></h1>
+    <h2 class="document__byline uk-h3">
+        by <a href="/friend/<?= $document->getFriend()->getSlug() ?>">
+            <?= $document->getFriend()->getName() ?>
+        </a>
+    </h2>
 
-            <p>
-                <?= $document->getDescription() ?>
-            </p>
+    <p>
+        <?= $document->getDescription() ?>
+    </p>
 
-            <?php foreach ($document->getEditions() as $edition): ?>
-                <?php view('document/edition', compact('edition')) ?>
-            <?php endforeach; ?>
-        </div>
+    <hr class="uk-divider-icon">
+
+    <div class="document-editions">
+        <?php foreach ($document->getEditions() as $edition): ?>
+            <?php view('document/edition', compact('edition')) ?>
+        <?php endforeach; ?>
     </div>
 <div>

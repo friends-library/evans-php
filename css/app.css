@@ -2,3 +2,7 @@
 @import "colors";
 @import "blocks/all";
 @import "components/all";
+
+.uk-divider-icon {
+  height: 40px;
+}
