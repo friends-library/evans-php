@@ -12,6 +12,8 @@
                 <?= $document->getDescription() ?>
             </p>
 
+            <hr class="divider-icon" />
+
             <?php foreach ($document->getEditions() as $edition): ?>
                 <?php view('document/edition', compact('edition')) ?>
             <?php endforeach; ?>

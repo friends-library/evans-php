@@ -30,23 +30,23 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: [
-          fontMagician({
-            variants: {
-              'Roboto Slab': {
-                '400': [],
-              },
-              'Raleway': {
-                '400': [],
-              },
-            },
-            foundries: ['google']
-          })
-        ]
-      }
-    })
-  ]
+  // plugins: [
+  //   new webpack.LoaderOptionsPlugin({
+  //     options: {
+  //       postcss: [
+  //         fontMagician({
+  //           variants: {
+  //             'Roboto Slab': {
+  //               '400': [],
+  //             },
+  //             'Raleway': {
+  //               '400': [],
+  //             },
+  //           },
+  //           foundries: ['google']
+  //         })
+  //       ]
+  //     }
+  //   })
+  // ]
 };
