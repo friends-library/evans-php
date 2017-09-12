@@ -1,7 +1,7 @@
 .nav-block {
   text-align: center;
-  background-color: #1e87f0;
-  color: white;
+  background-color: var(--dodger-blue);
+  color: #fff;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -10,7 +10,7 @@
 }
 
 .logo {
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
 
