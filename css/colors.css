@@ -1,20 +1,26 @@
 .edition-original {
-  color: orange;
+  color: var(--color-edition-original);
 }
 .edition-updated {
-  color: green;
+  color: var(--color-edition-updated);
 }
 .edition-modernized {
-  color: red;
+  color: var(--color-edition-modernized);
 }
 
 
 .format-mobi {
-  color: purple;
+  color: var(--color-format-mobi);
 }
 .format-pdf {
-  color: blue;
+  color: var(--color-format-pdf);
 }
 .format-epub {
-  color: indigo;
+  color: var(--color-format-epub);
+}
+.format-softcover {
+  color: var(--color-format-softcover);
+}
+.format-audio {
+  color: var(--color-format-audio);
 }

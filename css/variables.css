@@ -1,0 +1,14 @@
+:root {
+  /* colors */
+  --dodger-blue: #1e87f0;
+  --gallery: #eaeaea;
+
+  --color-edition-original: orange;
+  --color-edition-updated: green;
+  --color-edition-modernized: red;
+  --color-format-mobi: purple;
+  --color-format-pdf: blue;
+  --color-format-epub: indigo;
+  --color-format-softcover: #F2BDF1;
+  --color-format-audio: salmon;
+}

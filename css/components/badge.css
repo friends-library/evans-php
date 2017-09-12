@@ -8,7 +8,7 @@
   padding: 0 5px;
   border-radius: 500px;
   vertical-align: middle;
-  background: #1e87f0;
+  background: var(--dodger-blue);
   color: #fff;
   font-size: 13.25px;
   display: inline-flex;

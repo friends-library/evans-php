@@ -10,7 +10,7 @@
     "serve": "php -S localhost:1111 -t public/",
     "sass": "node-sass-chokidar sass/ -o public/css/ --output-style compressed --include-path node_modules/",
     "watch:sass": "node-sass-chokidar sass/ -o public/css/ --output-style compressed --include-path node_modules/ -w sass/* -r",
-    "postcss": "postcss css/app.css --use postcss-import --use postcss-font-magician --use autoprefixer --use css-mqpacker --use cssnano --output public/css/app.css --no-map",
+    "postcss": "postcss css/app.css --use postcss-import --use postcss-css-variables --use postcss-font-magician --use autoprefixer --use css-mqpacker --use cssnano --output public/css/app.css --no-map",
     "watch:postcss": "postcss css/app.css --use postcss-import --use postcss-font-magician --use autoprefixer --use css-mqpacker --use cssnano --output public/css/app.css --no-map --watch",
     "sync": "browser-sync start --port 5678 --ui-port 2345 --files 'public/css/app.css, public/js/app.js'",
     "start": "yarn sass && yarn postcss && yarn sync & yarn watch:postcss & webpack --watch & yarn watch:sass",
@@ -33,6 +33,7 @@
     "postcss-import": "^10.0.0",
     "slideout": "^1.0.1",
     "stylelint": "^8.0.0",
-    "webpack": "^3.4.1"
+    "webpack": "^3.4.1",
+    "postcss-css-variables": "^0.8.0"
   }
 }
