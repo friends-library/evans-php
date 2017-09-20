@@ -13,7 +13,27 @@
     </head>
     <body>
         <nav id="menu" class="slideout-menu">
-            <h2>Menu</h2>
+            <h2>Friends</h2>
+            <ul>
+            <?php
+
+            $friends = [
+                'Rebecca Jones' => 'rebecca-jones',
+                'Isaac Penington' => 'isaac-penington',
+                'Robert Barclay' => 'robert-barclay',
+                'John Gratton' => 'john-gratton',
+                'John Burnyeat' => 'john-burnyeat',
+                'Stephen Crisp' => 'stephen-crisp',
+                'Catherine Jones' => 'catherine-payton-phillips',
+                'John Griffeth' => 'john-griffeth',
+                'Thomas Story' => 'thomas-story',
+            ];
+
+            foreach ($friends as $name => $slug) {
+                ?><li><a href="/friend/<?= $slug ?>"><?= $name ?></a></li><?php
+            }
+            ?>
+            </ul>
         </nav>
 
         <main id="site" class="slideout-panel">

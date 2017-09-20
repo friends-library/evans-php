@@ -6,7 +6,7 @@
   "author": "Jared Henderson <jared@netrivet.com>",
   "license": "MIT",
   "scripts": {
-    "reset": "php vendor/bin/phinx rollback -t 0 && php vendor/bin/phinx migrate && php vendor/bin/phinx seed:run",
+    "reset": "php vendor/bin/phinx rollback -t 0 && php vendor/bin/phinx migrate",
     "serve": "php -S localhost:1111 -t public/",
     "sass": "node-sass-chokidar sass/ -o public/css/ --output-style compressed --include-path node_modules/",
     "watch:sass": "node-sass-chokidar sass/ -o public/css/ --output-style compressed --include-path node_modules/ -w sass/* -r",
