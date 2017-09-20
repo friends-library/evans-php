@@ -74,6 +74,7 @@ class FriendQuery
             ->leftJoin('d', 'chapters', 'c', 'c.edition_id = e.id')
             ->leftJoin('e', 'formats', 'fm', 'fm.edition_id = e.id')
             ->where('fr.slug = :slug')
+            ->orderBy('d.title')
             ->setParameter('slug', $slug)
             ->execute()
             ->fetchAll();

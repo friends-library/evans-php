@@ -92,6 +92,7 @@ class DocumentQuery
             ->leftJoin('e', 'formats', 'fm', 'fm.edition_id = e.id')
             ->where('fr.slug = :friend_slug')
             ->andWhere('d.slug = :document_slug')
+            ->orderBy('c.order')
             ->setParameter('friend_slug', $this->friendSlug)
             ->setParameter('document_slug', $slug)
             ->execute()
