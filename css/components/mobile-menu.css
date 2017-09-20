@@ -11,6 +11,7 @@ body {
   bottom: 0;
   right: 0;
   z-index: 0;
+  padding-left: 1.5em;
   width: 256px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;

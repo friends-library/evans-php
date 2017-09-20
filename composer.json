@@ -13,7 +13,8 @@
         "symfony/http-kernel": "^3.3",
         "khill/php-duration": "^1.0",
         "webpatser/laravel-uuid": "^3.0",
-        "jaybizzle/crawler-detect": "^1.2"
+        "jaybizzle/crawler-detect": "^1.2",
+        "symfony/yaml": "^3.3"
     },
     "authors": [
         {
