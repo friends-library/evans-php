@@ -24,7 +24,7 @@
                 'John Gratton' => 'john-gratton',
                 'John Burnyeat' => 'john-burnyeat',
                 'Stephen Crisp' => 'stephen-crisp',
-                'Catherine Jones' => 'catherine-payton-phillips',
+                'Catherine Phillips' => 'catherine-payton-phillips',
                 'John Griffeth' => 'john-griffeth',
                 'Thomas Story' => 'thomas-story',
             ];
