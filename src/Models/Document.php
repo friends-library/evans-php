@@ -40,6 +40,32 @@ class Document extends Entity
     }
 
     /**
+     * Does the document have a modernized edition?
+     *
+     * @return bool
+     */
+    public function hasModernizedEdition(): bool
+    {
+        foreach ($this->getEditions() as $edition) {
+            if ($edition->getType() === 'modernized') {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Does the document have audio available for any of it's editions?
+     *
+     * @return bool
+     */
+    public function hasAudio(): bool
+    {
+        return in_array('audio', $this->getUniqueFormatTypes());
+    }
+
+    /**
      * Get shortest edition by pages
      *
      * @return Edition

@@ -12,7 +12,7 @@
     "watch:sass": "node-sass-chokidar sass/ -o public/css/ --output-style compressed --include-path node_modules/ -w sass/* -r",
     "postcss": "postcss css/app.css --use postcss-import --use postcss-css-variables --use postcss-font-magician --use autoprefixer --use css-mqpacker --use cssnano --output public/css/app.css --no-map",
     "watch:postcss": "postcss css/app.css --use postcss-import --use postcss-font-magician --use autoprefixer --use css-mqpacker --use cssnano --output public/css/app.css --no-map --watch",
-    "sync": "browser-sync start --port 5678 --ui-port 2345 --files 'public/css/app.css, public/js/app.js'",
+    "sync": "browser-sync start --port 5678 --ui-port 2345 --files 'public/css/app.css, public/js/app.js' --no-notify",
     "start": "yarn sass && yarn postcss && yarn sync & yarn watch:postcss & webpack --watch & yarn watch:sass",
     "lint:php": "cd .lint && ../vendor/bin/phpcs",
     "preflight": "yarn lint:php && vendor/bin/peridot"
@@ -22,18 +22,18 @@
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
-    "bootstrap": "git+ssh://git@github.com/twbs/bootstrap.git#v4-dev",
     "browser-sync": "^2.18.13",
     "css-mqpacker": "^6.0.1",
     "cssnano": "^3.10.0",
     "node-sass-chokidar": "^0.0.3",
     "normalize.css": "^7.0.0",
     "postcss-cli": "^4.1.0",
+    "postcss-css-variables": "^0.8.0",
     "postcss-font-magician": "^2.0.0",
     "postcss-import": "^10.0.0",
     "slideout": "^1.0.1",
     "stylelint": "^8.0.0",
     "webpack": "^3.4.1",
-    "postcss-css-variables": "^0.8.0"
+    "bootstrap": "4.0.0-beta"
   }
 }
