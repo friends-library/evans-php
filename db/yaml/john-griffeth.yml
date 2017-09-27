@@ -6,6 +6,8 @@ documents:
     title: John Griffeth's Early Years & Spiritual Growth
     slug: early-years-and-spiritual-growth
     description: This instructive portion of his lengthy journal deals with his conversion, spiritual growth, and call to the ministry. The full journal can be found in the Friends Library, vol. 5.
+    tags:
+      - journal
     editions:
       -
         type: modernized
@@ -28,6 +30,8 @@ documents:
     title: The Complete Journal of John Griffeth
     slug: journal
     description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    tags:
+      - journal
     editions:
       -
         type: updated
@@ -66,6 +70,8 @@ documents:
     title: Remarks on Parenting, New Birth, Worship, Ministry, & Discipline
     slug: remarks
     description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    tags:
+      - treatise
     editions:
       -
         type: modernized

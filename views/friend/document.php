@@ -21,7 +21,9 @@
         </li>
         <li>
             <i class="fa fa-tags"></i>
-            Journal and Letters
+            <?= join(', ', array_map(function ($tag) {
+                return ucfirst($tag->getName());
+            }, $document->getTags())) ?>
         </li>
     </ul>
     <a class="document-summary__link" href="<?= url($document) ?>">

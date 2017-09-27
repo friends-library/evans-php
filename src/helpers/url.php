@@ -4,6 +4,7 @@ use Evans\Models\Entity;
 use Evans\Models\Document;
 use Evans\Models\Friend;
 use Evans\Models\Format;
+use Evans\Models\Tag;
 
 /**
  * Get the url for an entity
@@ -21,6 +22,8 @@ function url(Entity $entity, ?Entity $modifier = null): string
             $friendSlug = $entity->getFriend()->getSlug();
             $documentSlug = $entity->getSlug();
             return "/{$friendSlug}/{$documentSlug}";
+        case Tag::class:
+            return '/tags/' . $entity->getName();
         case Format::class:
             $type = $entity->getType();
             $edition = $entity->getEdition();

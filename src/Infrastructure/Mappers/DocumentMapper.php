@@ -18,11 +18,20 @@ class DocumentMapper extends EntityMapper
     protected $editionMapper;
 
     /**
-     * @param EditionMapper $editionMapper
+     * @var TagMapper
      */
-    public function __construct(EditionMapper $editionMapper)
-    {
+    protected $tagMapper;
+
+    /**
+     * @param EditionMapper $editionMapper
+     * @param TagMapper $tagMapper
+     */
+    public function __construct(
+        EditionMapper $editionMapper,
+        TagMapper $tagMapper
+    ) {
         $this->editionMapper = $editionMapper;
+        $this->tagMapper = $tagMapper;
     }
 
     /**
@@ -44,6 +53,9 @@ class DocumentMapper extends EntityMapper
 
         $editions = $this->mapEditions($results, $document);
         $document->setEditions($editions);
+
+        $tags = $this->mapTags($results, $document);
+        $document->setTags($tags);
 
         return $document;
     }
@@ -79,5 +91,27 @@ class DocumentMapper extends EntityMapper
         }
 
         return array_values($editions);
+    }
+
+    /**
+     * Map db results to document tags
+     *
+     * @param array $results
+     * @param Document $document
+     * @return array<Tag>
+     */
+    protected function mapTags(array $results, Document $document): array
+    {
+        $tags = [];
+        foreach ($results as $result) {
+            $tagId = $result['tag_id'];
+            if (! isset($tags[$tagId])) {
+                $tag = $this->tagMapper->map($result);
+                $tag->setDocument($document);
+                $tags[$tagId] = $tag;
+            }
+        }
+
+        return array_values($tags);
     }
 }

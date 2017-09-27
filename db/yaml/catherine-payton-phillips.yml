@@ -6,6 +6,9 @@ documents:
     title: The Life and Letters of Catherine Phillips
     slug: life-and-letters
     description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    tags:
+      - journal
+      - letters
     editions:
       -
         type: updated
@@ -40,6 +43,8 @@ documents:
     title: Letter to a Backslidden Brother
     slug: letter-to-backslidden-brother
     description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    tags:
+      - letters
     editions:
       -
         type: updated

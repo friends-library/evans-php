@@ -6,6 +6,8 @@ documents:
     title: Waiting Upon the Lord
     slug: waiting-upon-the-lord
     description: The greatest part of this booklet is an updated version of the eleventh proposition of Robert Barclay's Apology for the True Christian Divinity.1 The entire volume of Barclay's Apology (consisting of fifteen propositions in all) is a tremendous and compelling work that I strongly recommend to every serious seeker of the Truth. I have chosen to modernize and republish just this one proposi- tion because it seems to me that the invaluable practice of waiting upon the Lord has been especially neglected, and has all but disappeared from the church today.
+    tags:
+      - doctrinal
     editions:
       -
         type: modernized
@@ -28,6 +30,8 @@ documents:
     title: Saved to the Uttermost
     slug: saved-to-the-uttermost
     description: The greatest part of this booklet is an updated version of the eleventh proposition of Robert Barclay's Apology for the True Christian Divinity.1 The entire volume of Barclay's Apology (consisting of fifteen propositions in all) is a tremendous and compelling work that is strongly recommended to every serious seeker of the Truth.
+    tags:
+      - doctrinal
     editions:
       -
         type: modernized
@@ -62,6 +66,8 @@ documents:
     title: Apology for the True Christian Divinity
     slug: apology
     description: Robert Barclay (1648–1690) was a Scottish Quaker, and one of the most eminent writers in the Society of Friends. His Apology for the True Christian Divinity is perhaps the most well-known of all Quaker writings, containing a thorough explanation and defense of most of their principles and doctrines.
+    tags:
+      - doctrinal
     editions:
       -
         type: updated
@@ -114,6 +120,8 @@ documents:
     title: Considerations upon Recreation and Entertainment
     slug: recreation-and-entertainment
     description: An extract from the fifteenth proposition of Robert Barclay's "Apology for the True Christian Divinity" regarding entertainment and recreation.
+    tags:
+      - doctrinal
     editions:
       -
         type: modernized
