@@ -1,5 +1,6 @@
 <?php
 
+use Evans\Models\Tag;
 use Webpatser\Uuid\Uuid;
 use Symfony\Component\Yaml\Yaml;
 use Phinx\Migration\AbstractMigration;
@@ -74,6 +75,10 @@ class PopulateFromYaml extends AbstractMigration
         foreach ($document['editions'] as $edition) {
             $this->addEdition($edition, $document['id']);
         }
+
+        foreach ($document['tags'] as $tag) {
+            $this->addTag($tag, $document['id']);
+        }
     }
 
     /**
@@ -103,6 +108,22 @@ class PopulateFromYaml extends AbstractMigration
         foreach ($edition['formats'] as $format) {
             $this->addFormat($format, $edition['id']);
         }
+    }
+
+    /**
+     * Add tag
+     *
+     * @param string $tagName
+     * @param string $documentId
+     */
+    protected function addTag(string $tagName, string $documentId): void
+    {
+        $tagId = constant(Tag::class . '::' . strtoupper($tagName));
+        $this->table('documents_tags')->insert([[
+            'document_id' => $documentId,
+            'tag_id' => $tagId,
+            'created_at' => date('Y-m-d H:i:s'),
+        ]])->save();
     }
 
     /**

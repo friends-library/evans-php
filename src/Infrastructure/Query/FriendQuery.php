@@ -66,10 +66,16 @@ class FriendQuery
                 'fm.id as format_id',
                 'fm.type as format_type',
                 'fm.created_at as format_created_at',
-                'fm.updated_at as format_updated_at'
+                'fm.updated_at as format_updated_at',
+                't.id as tag_id',
+                't.name as tag_name',
+                't.created_at as tag_created_at',
+                't.updated_at as tag_updated_at'
             )
             ->from('friends', 'fr')
             ->leftJoin('fr', 'documents', 'd', 'd.friend_id = fr.id')
+            ->leftJoin('d', 'documents_tags', 'dt', 'dt.document_id = d.id')
+            ->leftJoin('dt', 'tags', 't', 't.id = dt.tag_id')
             ->leftJoin('d', 'editions', 'e', 'e.document_id = d.id')
             ->leftJoin('d', 'chapters', 'c', 'c.edition_id = e.id')
             ->leftJoin('e', 'formats', 'fm', 'fm.edition_id = e.id')

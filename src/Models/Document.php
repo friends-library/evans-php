@@ -18,6 +18,11 @@ class Document extends Entity
     protected $editions = [];
 
     /**
+     * @var array<Tag>
+     */
+    protected $tags = [];
+
+    /**
      * @var Friend
      */
     protected $friend;
@@ -133,5 +138,38 @@ class Document extends Entity
     public function getEditions(): array
     {
         return $this->editions;
+    }
+
+    /**
+     * Set tags
+     *
+     * @param array<Tag> $tags
+     */
+    public function setTags(array $tags): void
+    {
+        $this->tags = [];
+        foreach ($tags as $tag) {
+            $this->addTag($tag);
+        }
+    }
+
+    /**
+     * Add a tag
+     *
+     * @param Tag $tag
+     */
+    public function addTag(Tag $tag): void
+    {
+        $this->tags[] = $tag;
+    }
+
+    /**
+     * Get tags
+     *
+     * @return array<Tag>
+     */
+    public function getTags(): array
+    {
+        return $this->tags;
     }
 }

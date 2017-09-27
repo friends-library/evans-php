@@ -11,6 +11,7 @@ use Evans\Infrastructure\Mappers\DocumentMapper;
 use Evans\Infrastructure\Mappers\ChapterMapper;
 use Evans\Infrastructure\Mappers\EditionMapper;
 use Evans\Infrastructure\Mappers\FormatMapper;
+use Evans\Infrastructure\Mappers\TagMapper;
 
 $fixture = __DIR__ . '/friend.fixture.json';
 $data = json_decode(file_get_contents($fixture), true);
@@ -24,7 +25,8 @@ describe('FriendMapper->map()', function () use ($data) {
                 new EditionMapper(
                     new ChapterMapper(),
                     new FormatMapper()
-                )
+                ),
+                new TagMapper()
             )
         );
     });
