@@ -12,7 +12,7 @@
         <script src="/js/app.js" defer></script>
     </head>
     <body>
-        <nav id="menu" class="slideout-menu">
+        <nav id="menu" off-canvas="menu left reveal">
             <h2>Friends</h2>
             <ul>
             <?php
@@ -36,16 +36,17 @@
             </ul>
         </nav>
 
-        <main id="site" class="slideout-panel">
-            <div class="block container-fluid nav-block">
-                <div class="row">
-                    <div class="col">
-                        <a id="mobile-toggle" class="mobile-toggle">☰</a>
-                        <p>
-                            <a href="/" class="logo">
-                                Friends Library
-                            </a>
-                        </p>
-                    </div>
+        <div class="block container-fluid nav-block" canvas="">
+            <div class="row">
+                <div class="col">
+                    <a id="mobile-toggle" class="mobile-toggle">☰</a>
+                    <p>
+                        <a href="/" class="logo">
+                            Friends Library
+                        </a>
+                    </p>
                 </div>
             </div>
+        </div>
+
+        <main id="site" canvas="container">

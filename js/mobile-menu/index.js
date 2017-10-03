@@ -1,13 +1,15 @@
-import Slideout from 'slideout';
+import $ from 'jquery';
 
-export default function init() {
-  const slideout = new Slideout({
-    'panel': document.getElementById('site'),
-    'menu': document.getElementById('menu'),
-    'padding': 256,
-    'tolerance': 70
+window.$ = $;
+const slidebars = require('slidebars');
+
+export default function initMobileMenu() {
+  const controller = new slidebars();
+  controller.init();
+
+  $('.mobile-toggle').on('click', (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    controller.toggle('menu');
   });
-
-  const toggle = document.getElementById('mobile-toggle');
-  toggle.addEventListener('click', () => slideout.toggle());
 }
