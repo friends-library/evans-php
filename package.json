@@ -18,10 +18,12 @@
     "preflight": "yarn lint:php && vendor/bin/peridot"
   },
   "devDependencies": {
+    "slidebars": "git+ssh://git@github.com/jaredh159/Slidebars.git#3.0.0",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
+    "bootstrap": "4.0.0-beta",
     "browser-sync": "^2.18.13",
     "css-mqpacker": "^6.0.1",
     "cssnano": "^3.10.0",
@@ -31,9 +33,7 @@
     "postcss-css-variables": "^0.8.0",
     "postcss-font-magician": "^2.0.0",
     "postcss-import": "^10.0.0",
-    "slideout": "^1.0.1",
     "stylelint": "^8.0.0",
-    "webpack": "^3.4.1",
-    "bootstrap": "4.0.0-beta"
+    "webpack": "^3.4.1"
   }
 }
