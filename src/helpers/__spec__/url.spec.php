@@ -28,7 +28,9 @@ describe('url()', function () {
     it('returns special audio url for audio format entity', function () {
         $url = url($this->format);
 
-        expect($url)->to->equal('/rebecca-jones/diary/updated/audio');
+        expect($url)->to->equal(
+            '/rebecca-jones/diary/updated/audio'
+        );
     });
 
     it('returns special softcover url for softcover format entity', function () {
